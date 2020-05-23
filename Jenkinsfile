@@ -28,5 +28,21 @@ pipeline {
                   }
               }
          }
+         stage('Test') {
+            when {
+                branch 'Development' 
+            }
+             steps {
+                 sh 'echo "Development Environment"'
+             }
+         }
+         stage('Deploy') {
+            when {
+                branch 'Deployment' 
+            }
+            steps {
+                 sh 'echo "Deploy Environment"'
+            }
+         }
      }
 }
